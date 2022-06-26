@@ -1,9 +1,9 @@
 const express=require('express');
-const router=express.Router();
+const ruta=express.Router();
 
 
 
-router.get('/',(req,res)=>{
+ruta.get('/',(req,res)=>{
     res.redirect('/usuarios/registro');
 });
-module.exports=router;
+module.exports=ruta;

@@ -27,9 +27,9 @@ app.use((req,res,next)=>{
 });
 //ROUTES (rutas del servidor)
 
-app.use(require('./routes'));
-app.use(require('./routes/authentication'));
-app.use(`/usuarios`,require('./routes/usuarios'));
+app.use(require('./rutas'));
+app.use(require('./rutas/authentication'));
+app.use(`/usuarios`,require('./rutas/usuarios'));
    
 //PUBLIC
 
