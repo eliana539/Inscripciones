@@ -1,16 +1,23 @@
 const express=require('express');
 const ruta=express.Router();
-const pool = require('../database');
+const db = require('../database');
 
-ruta.get('/registro', (req,res) => {
+/*  ruta.get('/registro', async(req,res) => {
     console.log("Recorda usar esto para ver tus cosas")
-    res.render('paginas/registro');
-});
+    res.render('auth/registro');
+}); */
  /*    ruta.get('/ingreso', async(req, res)=>{
        res.render('paginas/ingreso')
     }) */
-ruta.post('/registro', (req, res)=>{
-    res.send('recibido'); 
+/* ruta.post('/registro', async(req, res)=>{
+
+    console.log(req.body)
+    res.redirect('/usuarios/principal'); 
+});  */
+ruta.get('/principal', async (req, res)=> {
+    res.render('paginas/principal');
 });
+
+
 
 module.exports=ruta;
