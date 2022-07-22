@@ -3,6 +3,16 @@ const LocalStrategy = require('passport-local').Strategy;
 const pool =require ('../database');
 const helpers= require('../lib/helpers');
 
+passport.use('local.inicio', new LocalStrategy({
+    usernameField: 'dni',
+    passwordField: 'contrasenia',
+    passReqToCallback: true
+}, async (req, dni, contrasenia, done)=>{
+    console.log (req.body)
+    console.log (dni)
+    console.log (contrasenia)
+}));
+
 passport.use('local.registro', new LocalStrategy({
     usernameField: 'dni' ,
     passwordField: 'contrasenia',
@@ -19,10 +29,10 @@ passport.use('local.registro', new LocalStrategy({
     try {
         const final= await pool.query('INSERT INTO usuarios SET ?', [nuevoUsuario]);
         nuevoUsuario.legajo = final.insertId;
-        if (final) {
+        /* if (final) {
             await pool.query('INSERT INTO usuarios_tel SET ?', [{legajo:final.insertId, telefono}]);
             await pool.query('INSERT INTO usuarios_mail SET ?', [{legalo:final.insertId, email}]);
-        }
+        } */
         return done(null, nuevoUsuario);
     } catch (error) {
         console.log(error);

@@ -37,3 +37,4 @@ alter table usuarios change Apellido apellido VARCHAR (50);
 alter table usuarios change DNI dni int(12);
 alter table usuarios_mail change mail email varchar(15);
  ALTER TABLE usuarios  auto_increment = 1; 
+ alter table usuarios add COLUMN nombre_usuario VARCHAR(20);
