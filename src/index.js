@@ -40,14 +40,16 @@ app.use(passport.session());
 
 //GLOBAL VARIABLES
 app.use((req,res,next)=>{
-    app.locals.success=  req.flash('success');
+    app.locals.msjbien=  req.flash('msjbien');
+    app.locals.msjmal=req.flash('msjmal');
     next();
 });
+
 //ROUTES (rutas del servidor)
 
 app.use(require('./rutas'));
 app.use(require('./rutas/autenticacion'));
-app.use(`/usuarios`,require('./rutas/usuarios'));
+app.use(`/paginas`,require('./rutas/usuarios'));
    
 //PUBLIC
 
