@@ -45,4 +45,10 @@ alter table usuarios_mail change mail email varchar(15);
  DELETE from usuarios;
   DELETE from usuarios_mail;
   DELETE from usuarios_tel;
-  
+
+   CREATE TABLE materia(
+    nombre varchar (30) NOT NULL,
+    horario INT (15) NOT NULL,
+    dia varchar (10) NOT NULL,
+
+)

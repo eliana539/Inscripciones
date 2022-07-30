@@ -1,0 +1,36 @@
+<div id="ticket">
+    <div class="container-fluid pt-5">
+        <table id="myTable" class="table table-success table-striped ">
+            <thead>
+                <th onclick="sortTable(0, 'str')">Legajo</th>
+                <th onclick="sortTable(1, 'str')">Nombre</th>
+                <th onclick="sortTable(2, 'int')">Apellido</th>
+                <th onclick="sortTable(3, 'str')">Dni</th>
+                <th onclick="sortTable(4, 'str')">Domicilio</th>
+                <th onclick="sortTable(5, 'int')">Fecha de nacimiento</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody id="tablaReserva">
+               {{#each usuarios}}
+                <tr>
+                    <td>{{ legajo}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{dni}}</td>
+                    <td>{{domicilio}}</td>
+                    <td>{{ fechaNacimiento}}</td>
+                    <td>
+                    <button class="btn btn-success" >editar</button>
+                    <button class="btn btn-danger" >eliminar</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+     
+           <div class="row py-5">
+        <div style="float: left" class="col-2 p-3">
+            <a id="volver" href="/paginas/deporte" type="button" class="btn btn-primary">Salir</a>
+        </div>
+    </div> 
+</div>  

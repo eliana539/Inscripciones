@@ -25,6 +25,14 @@ ruta.get('/principal', async (req, res)=> {
     res.redirect('')
 }); */
 
+ ruta.get('/listadousuario', async (req, res)=> {
+    const usuarios= await db.query ('select * from usuarios');
+    console.log(usuarios)
+    res.render('paginas/listadoUsuario', {usuarios});
+}); 
+/* ruta.post('/listadoUsuario', async (req, res)=> {
+    res.redirect('recibido');
+}); */
 
 
 module.exports=ruta;

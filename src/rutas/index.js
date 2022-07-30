@@ -4,6 +4,6 @@ const ruta=express.Router();
 
 
 ruta.get('/',(req,res)=>{
-    res.redirect('/registro');
+    res.redirect('/inicio');
 });
 module.exports=ruta;
