@@ -1,0 +1,43 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="text-center">
+                    <h3>Datos Alumnos</h3>
+                </div>
+                <form action="editarAlumno/{{legajo}}" method="post">
+                    <div class="card-body">
+                        {{#each traerAlumno}}
+                            
+                            Legajo: {{legajo}}</br>
+                            Nombre:  <input type="text" name="nombre"value="{{nombre}}" placeholder="{{nombre}}"></br>
+                            Apellido: <input type="text" name="apellido" value="{{apellido}}" placeholder="{{apellido}}"></br>
+                            DNI: <input type="text" name="dni" value="{{dni}}" placeholder="{{dni}}"> </br>
+                            Domicilio: <input type="text" name="domicilio" value="{{domicilio}}" placeholder="{{domicilio}}"></br>
+                            Fecha de Nacimiento: <input type="text" name="fechaNacimiento" value="{{fechaNacimiento}}" placeholder="{{fechaNacimiento}}"></br>   
+                        {{/each}}
+                        <p> teléfono/s:</p>
+                        {{#each traerAlumnoTel}}
+                        <p><input type="text" name="telefono" value="{{telefono}}" placeholder="{{telefono}}"></p>
+                        {{/each}}
+                        <b>Email:</b>
+                        {{#each traerAlumnoEmail}}
+                        <p><input type="text" name="email" value="{{email}}" placeholder=" {{email}}"></p>
+                        {{/each}}
+                        {{!-- <span><hr class="dropdown-divider"></span> --}}
+                    </div>
+                    <div class="col-md-6 mx-auto m-3 p-2">
+                            <button type="submit" class="btn btn-success btn-block">
+                                Actualizar
+                            </button>
+                            <a type="button" href="/paginas/listadoUsuario" class="btn btn-danger btn-block">
+                                Cancelar
+                            </a>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

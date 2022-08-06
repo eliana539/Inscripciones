@@ -42,6 +42,54 @@ ruta.get('/principal', async (req, res)=> {
     console.log(alumnoTel)
     res.render('paginas/informacionAlumno', {alumno,alumnoTel,alumnoEmail});
  });
+ruta.get('/editaralumno/:legajo', async (req, res)=>{
+    const{legajo} = req.params;
+    const traerAlumno = await db.query ('select usuarios.legajo, nombre, apellido, dni, domicilio, fechaNacimiento from usuarios where usuarios.legajo =?', [legajo]);
+    const traerAlumnoTel = await db.query ('select telefono from usuarios_tel where usuarios_tel.legajo =?',[legajo]);
+    const traerAlumnoEmail = await db.query ('select email from usuarios_mail where usuarios_mail.legajo =?', [legajo]);
+    console.log(traerAlumno)
+    console.log(traerAlumnoEmail)
+    console.log(traerAlumnoTel)
+    res.render('paginas/editarAlumno', {traerAlumno,traerAlumnoTel,traerAlumnoEmail});
+    
+});
+ruta.post('/editarAlumno/:legajo', async (req, res)=>{
+    const {legajo} = req.params; 
+    const {nombre, apellido, dni, domicilio, fechaNacimiento, email/* , telefono */  } = req.body ;
+    //const {telefono} =req.body;
+    //const{email}=req.body;
+    
+    const newUsuario={
+        nombre,
+        apellido,
+        dni,
+        domicilio,
+        fechaNacimiento,
+        
+    }
+    console.log(newUsuario);
+    const newUsuario_mail={
+       email,
+    }
+    console.log(newUsuario_mail);
+    //const newUsuario_tel={
+       // telefono
+    //}
+    try {
+        const actualizar= await db.query('Update usuarios set? where legajo =?', [newUsuario, legajo]);
+       const actUsuarios_mail = await db.query('Update usuarios_mail set? where legajo=?',[newUsuario_mail, legajo]);
+        console.log(newUsuario_mail);
+        /* const actUsuarios_tel= await db.query('Update usuarios_tel set ? where legajo=?', [newUsuario_tel, legajo]);  */
+        if (actualizar, actUsuarios_mail ){
+         req.flash('msjbien', 'Datos Actualizados correctamente');
+         res.redirect('/paginas/listadoUsuario')
+        }
+     } catch (error) {
+         console.log(error)
+         req.flash('msjmal', 'Los Datos no han sido actualizados');
+         res.redirect('/paginas/listadoUsuario')
+     }
+});
 
 
 
