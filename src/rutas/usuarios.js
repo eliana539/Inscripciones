@@ -59,22 +59,25 @@ ruta.post('/editaralumno/:legajo', async (req, res) => {
         fechaNacimiento
 
     }
-    const newUsuario_mail = {
-        email,
-    }
-   /*   console.log(typeof email)
-    console.log(email) */
-     if (email) {
-        email.forEach ( element => {
-        db.query('Update usuarios_mail set? where legajo=?',[element, legajo]); 
-        console.log(element)
-        }); 
-    } 
 
+    async function update() {
+        for (let i = 0; i < email.length; i++) {
+            try {
+                const mail = await db.query('insert into usuarios_mail set?', { legajo, email: email[i] })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+
+    }
+    update()
     try {
         const actualizar = await db.query('Update usuarios set? where legajo =?', [newUsuario, legajo]);
         /* const actUsuarios_tel= await db.query('Update usuarios_tel set ? where legajo=?', [newUsuario_tel, legajo]);  */
         if (actualizar) {
+
+
             req.flash('msjbien', 'Datos Actualizados correctamente');
             res.redirect('/paginas/listadoUsuario')
         }

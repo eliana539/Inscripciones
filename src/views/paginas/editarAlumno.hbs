@@ -19,11 +19,11 @@
                         {{/each}}
                         <p> teléfono/s:</p>
                         {{#each traerAlumnoTel}}
-                        <p><input type="text" name="telefono" value="{{telefono}}" placeholder="{{telefono}}"></p>
+                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="{{telefono}}"></p>
                         {{/each}}
                         <b>Email:</b>
                         {{#each traerAlumnoEmail}}
-                        <p><input type="text" name="email" value="{{email}}" placeholder=" {{email}}"></p>
+                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" {{email}}"></p>
                         {{/each}}
                         {{!-- <span><hr class="dropdown-divider"></span> --}}
                     </div>
