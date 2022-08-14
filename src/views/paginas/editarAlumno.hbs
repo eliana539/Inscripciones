@@ -5,38 +5,52 @@
                 <div class="text-center">
                     <h3>Datos Alumnos</h3>
                 </div>
-                  
+
                 <form action="/paginas/editarAlumno/{{legajo}}" method="post">
                     <div class="card-body">
                         {{#each traerAlumno}}
-                            
-                            Legajo: {{legajo}}</br>
-                            Nombre:  <input type="text" name="nombre"value="{{nombre}}" placeholder="{{nombre}}"></br>
-                            Apellido: <input type="text" name="apellido" value="{{apellido}}" placeholder="{{apellido}}"></br>
-                            DNI: <input type="text" name="dni" value="{{dni}}" placeholder="{{dni}}"> </br>
-                            Domicilio: <input type="text" name="domicilio" value="{{domicilio}}" placeholder="{{domicilio}}"></br>
-                            Fecha de Nacimiento: <input type="text" name="fechaNacimiento" value="{{fechaNacimiento}}" placeholder="{{fechaNacimiento}}"></br>   
+
+                        Legajo: {{legajo}}</br>
+                        Nombre: <input type="text" name="nombre" value="{{nombre}}" placeholder="{{nombre}}"></br>
+                        Apellido: <input type="text" name="apellido" value="{{apellido}}"
+                            placeholder="{{apellido}}"></br>
+                        DNI: <input type="text" name="dni" value="{{dni}}" placeholder="{{dni}}"> </br>
+                        Domicilio: <input type="text" name="domicilio" value="{{domicilio}}"
+                            placeholder="{{domicilio}}"></br>
+                        Fecha de Nacimiento: <input type="text" name="fechaNacimiento" value="{{fechaNacimiento}}"
+                            placeholder="{{fechaNacimiento}}"></br>
                         {{/each}}
-                        <p> teléfono/s:</p>
+                        <b class="m-5"> Teléfono/s</b><a type="button" href="/paginas/agregarTel/{{legajo}}"><i class="material-icons"
+                                style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">add_call</i></a>
                         {{#each traerAlumnoTel}}
-                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="{{telefono}}"></p>
+                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="{{telefono}}">
+                            <a type="button" href="/paginas/eliminarTel?legajo={{legajo}}&telefono={{telefono}}"><i class="material-icons"
+                                style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
+                        </p>
                         {{/each}}
-                        <b>Email:</b>
+                        <b class="m-5">Email</b><a type="button" href="/paginas/agregarMail/{{legajo}}"><i class="material-icons"
+                                style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">email</i></a>
                         {{#each traerAlumnoEmail}}
-                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" {{email}}"></p>
+                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" {{email}}">
+                           <a type="button" href="/paginas/eliminarMail?legajo={{legajo}}&email={{email}}"><i class="material-icons"
+                                style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
+                        </p>
                         {{/each}}
-                        {{!-- <span><hr class="dropdown-divider"></span> --}}
+                        {{!-- <span>
+                            <hr class="dropdown-divider">
+                        </span> --}}
                     </div>
-                    <div class="col-md-6 mx-auto m-3 p-2">
-                            <button type="submit" class="btn btn-success btn-block">
-                                Actualizar
-                            </button>
-                            <a type="button" href="/paginas/listadoUsuario" class="btn btn-danger btn-block">
-                                Cancelar
-                            </a>
-                        </div>
+                    <div class="btn-group p-4" role="group" aria-label="Basic mixed styles example">
+                        <button type="submit" class="btn btn-success ">
+                            Actualizar
+                        </button>
+
+                        <a type="button" href="/paginas/listadoUsuario" class="btn btn-danger ">
+                            Cancelar
+                        </a>
+                    </div>
                 </form>
-                
+
             </div>
         </div>
 
