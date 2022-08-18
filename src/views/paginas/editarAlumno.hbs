@@ -11,19 +11,19 @@
                         {{#each traerAlumno}}
 
                         Legajo: {{legajo}}</br>
-                        Nombre: <input type="text" name="nombre" value="{{nombre}}" placeholder="{{nombre}}"></br>
+                        Nombre: <input type="text" name="nombre" value="{{nombre}}" placeholder="Nombre"></br>
                         Apellido: <input type="text" name="apellido" value="{{apellido}}"
-                            placeholder="{{apellido}}"></br>
+                            placeholder="Apellido"></br>
                         DNI: <input type="text" name="dni" value="{{dni}}" placeholder="{{dni}}"> </br>
                         Domicilio: <input type="text" name="domicilio" value="{{domicilio}}"
-                            placeholder="{{domicilio}}"></br>
+                            placeholder="Domicilio"></br>
                         Fecha de Nacimiento: <input type="text" name="fechaNacimiento" value="{{fechaNacimiento}}"
-                            placeholder="{{fechaNacimiento}}"></br>
+                            placeholder="Fecha de Nacimiento"></br>
                         {{/each}}
                         <b class="m-5"> Teléfono/s</b><a type="button" href="/paginas/agregarTel/{{legajo}}"><i class="material-icons"
                                 style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">add_call</i></a>
                         {{#each traerAlumnoTel}}
-                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="{{telefono}}">
+                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="Teléfono">
                             <a type="button" href="/paginas/eliminarTel?legajo={{legajo}}&telefono={{telefono}}"><i class="material-icons"
                                 style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
                         </p>
@@ -31,7 +31,7 @@
                         <b class="m-5">Email</b><a type="button" href="/paginas/agregarMail/{{legajo}}"><i class="material-icons"
                                 style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">email</i></a>
                         {{#each traerAlumnoEmail}}
-                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" {{email}}">
+                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" email">
                            <a type="button" href="/paginas/eliminarMail?legajo={{legajo}}&email={{email}}"><i class="material-icons"
                                 style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
                         </p>
