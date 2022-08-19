@@ -1,50 +1,75 @@
-<div class="container p-4">
+<div class="container p-4" >
     <div class="row">
         <div class="col-md-4 mx-auto">
             <div class="card text-center">
-                <div class="text-center">
+                <div class="card-header text-center">
                     <h3>Datos Alumnos</h3>
                 </div>
 
                 <form action="/paginas/editarAlumno/{{legajo}}" method="post">
                     <div class="card-body">
                         {{#each traerAlumno}}
+                        <p>Legajo: {{legajo}}</p> </br>
+                        <div class="form-group">
+                            <input class="form-input" type="text" name="nombre" value="{{nombre}}" placeholder=" ">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                        </div><br>
+                        <div class="form-group">
+                            <input class="form-input" type="text" name="apellido" value="{{apellido}}" placeholder=" ">
+                            <label for="apellido" class="form-label">Apellido:</label>
+                        </div>
+                        </br>
+                        <div class="form-group">
+                            <input class="form-input" type="text" name="dni" value="{{dni}}" placeholder=" ">
+                            <label for="dni" class="form-label">DNI:</label>
+                        </div><br>
+                        <div class="form-group">
+                            <input class="form-input" type="text" name="domicilio" value="{{domicilio}}"
+                                placeholder=" ">
+                            <label for="domicilio" class="form-label">Domicilio:</label>
+                        </div><br>
+                        <div class="form-group">
+                            <input class="form-input" type="date" name="fechaNacimiento" value="{{fechaNacimiento}}"
+                                placeholder=" ">
+                            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
+                        </div><br>
 
-                        Legajo: {{legajo}}</br>
-                        Nombre: <input type="text" name="nombre" value="{{nombre}}" placeholder="Nombre"></br>
-                        Apellido: <input type="text" name="apellido" value="{{apellido}}"
-                            placeholder="Apellido"></br>
-                        DNI: <input type="text" name="dni" value="{{dni}}" placeholder="{{dni}}"> </br>
-                        Domicilio: <input type="text" name="domicilio" value="{{domicilio}}"
-                            placeholder="Domicilio"></br>
-                        Fecha de Nacimiento: <input type="text" name="fechaNacimiento" value="{{fechaNacimiento}}"
-                            placeholder="Fecha de Nacimiento"></br>
                         {{/each}}
-                        <b class="m-5"> Teléfono/s</b><a type="button" href="/paginas/agregarTel/{{legajo}}"><i class="material-icons"
-                                style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">add_call</i></a>
-                        {{#each traerAlumnoTel}}
-                        <p><input type="text" name="telefono[]" value="{{telefono}}" placeholder="Teléfono">
-                            <a type="button" href="/paginas/eliminarTel?legajo={{legajo}}&telefono={{telefono}}"><i class="material-icons"
-                                style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
-                        </p>
-                        {{/each}}
-                        <b class="m-5">Email</b><a type="button" href="/paginas/agregarMail/{{legajo}}"><i class="material-icons"
-                                style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;">email</i></a>
-                        {{#each traerAlumnoEmail}}
-                        <p><input type="text" name="email[]" value="{{email}}" placeholder=" email">
-                           <a type="button" href="/paginas/eliminarMail?legajo={{legajo}}&email={{email}}"><i class="material-icons"
-                                style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;">-</i></a>
-                        </p>
-                        {{/each}}
-                        {{!-- <span>
-                            <hr class="dropdown-divider">
-                        </span> --}}
+
+                        <div class="form-group">
+                            <label for="telefono" class="form-label">Teléfono/s:</label>
+                            <a type="button" href="/paginas/agregarTel/{{legajo}}"><i class="material-icons"
+                                    style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;margin-left:400%; margin-top:50%">add_call</i></a>
+                            <a type="button" href="/paginas/eliminarTel?legajo={{legajo}}&telefono={{telefono}}"><i
+                                    class="material-icons"
+                                    style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000; margin-left:900%; margin-top:0%">-</i></a>
+
+                            {{#each traerAlumnoTel}}
+
+                            <input class="form-input" type="int" name="telefono[]" value="{{telefono}}" placeholder=" ">
+                            {{/each}}
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email:</label>
+                            <a type="button" href="/paginas/agregarMail/{{legajo}}"><i class="material-icons"
+                                    style="font-size:25px;color:rgb(213, 238, 254);text-shadow:2px 2px 4px #000000;margin-left:400%">email</i></a>
+                            <a type="button" href="/paginas/eliminarMail?legajo={{legajo}}&email={{email}}"><i
+                                    class="material-icons"
+                                    style="font-size:40px;color:rgb(246, 3, 3);text-shadow:2px 2px 4px #000000;margin-left:900%">-</i>
+                            </a>
+                            {{#each traerAlumnoEmail}}
+
+                            <input class="form-input" type="text" name="email[]" value="{{email}}" placeholder=" ">
+
+                            {{/each}}
+                        </div>
+
+
                     </div>
                     <div class="btn-group p-4" role="group" aria-label="Basic mixed styles example">
                         <button type="submit" class="btn btn-success ">
                             Actualizar
                         </button>
-
                         <a type="button" href="/paginas/listadoUsuario" class="btn btn-danger ">
                             Cancelar
                         </a>

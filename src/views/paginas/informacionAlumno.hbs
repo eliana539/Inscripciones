@@ -8,21 +8,21 @@
                 <div class="card-body">
                     {{#each alumno}}
                         
-                        Legajo: {{legajo}}</br>
-                        Nombre: {{nombre}}{{!-- <input type="text" value="{{nombre}}"> --}}</br>
-                        Apellido: {{apellido}} <br>
-                        DNI: {{dni}} <br>
-                        Domicilio: {{domicilio}} <br>
-                        Fecha de Nacimiento: {{fechaNacimiento}} <br>
-                        
+                        <p><b>Legajo:</b>{{legajo}}</p>
+                        <p><b>Nombre:</b> {{nombre}}</p>
+                        <p><b>Apellido:</b> {{apellido}}</p> 
+                        <p><b>DNI:</b> {{dni}}</p> 
+                        <p><b>Domicilio:</b> {{domicilio}} </p>
+                        <p><b>Fecha de Nacimiento:</b> {{fechaNacimiento}}</p>
+                      
                     {{/each}}
-                    <p> teléfono/s:</p>
+                    <p><b>Teléfono/s:</b>
                     {{#each alumnoTel}}
-                       <p> {{telefono}} </p>
+                    {{telefono}}</p>
                     {{/each}}
-                    <b>Email:</b>
+                    <p><b>Email:</b>
                     {{#each alumnoEmail}}
-                    <p>{{email}} </p>
+                    {{email}}</p>
                     {{/each}}
                 </div>
             </div>

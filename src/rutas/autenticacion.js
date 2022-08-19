@@ -21,6 +21,9 @@ ruta.post('/inicio', (req, res, next)=>{
         failureFlash: true
     })(req, res, next);
 });
-
+ruta.get('/salir' ,(req,res)=>{
+    req.logOut();
+    res.redirect('/inicio');
+}); 
 
 module.exports = ruta; 

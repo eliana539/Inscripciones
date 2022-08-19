@@ -1,32 +1,35 @@
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
+<div class="p-5" >
+    <div class="container p-5" style="background-color:azure ; conteni">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
                 <div class="card text-center">
                     <div class="card-header">
                         <h3>Inicio Sesion</h3>
                     </div>
                     <div class="card-body">
-                    <form action="inicio" method="POST">
-                        <div class="form-group">
-                            <input type="int" class="form-input" name="dni" placeholder=" ">
-                            <label for="dni" class="form-label">Usuario:</label>
-                        </div>
-                        {{!-- <div class="form-group">
-                            <input type="int" class="form-control" name="telefono" placeholder="Teléfono">
-                        </div> --}}
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="contrasenia" placeholder=" ">
-                            <label for="contrasenia" class="form-label">Contraseña:</label>
-                            <span class="form-line"></span>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-block" type="submit">
-                                Iniciar
-                        </div>
-                    </form>
+                        <form action="inicio" method="POST">
+                            <div class="form-group">
+                                <input type="int" class="form-input" name="dni" placeholder=" ">
+                                <label for="dni" class="form-label">Usuario:</label>
+                            </div>
+                            {{!-- <div class="form-group">
+                                <input type="int" class="form-control" name="telefono" placeholder="Teléfono">
+                            </div> --}}
+                            <div class="form-group">
+                                <input type="password" class="form-input" name="contrasenia" placeholder=" ">
+                                <label for="contrasenia" class="form-label">Contraseña:</label>
+                                <span class="form-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary m-4" type="submit">
+                                    Iniciar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </div>
-            
         </div>
     </div>
 </div>

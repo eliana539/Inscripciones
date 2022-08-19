@@ -42,6 +42,7 @@ app.use(passport.session());
 app.use((req,res,next)=>{
     app.locals.msjbien=  req.flash('msjbien');
     app.locals.msjmal=req.flash('msjmal');
+    app.locals.user= req.user;
     next();
 });
 
