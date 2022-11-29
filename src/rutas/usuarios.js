@@ -11,12 +11,9 @@ ruta.post('/registro', async (req, res) => {
 });
 
 ruta.get('/inicio', noEstaLogueado, async (req, res) => {
-    console.log("Recorda usar esto para ver tus cosas")
     res.render('auth/inicio');
 });
 ruta.post('/inicio', async (req, res) => {
-
-    console.log(req.body)
     res.redirect('/paginas/principal');
 });
 ruta.get('/principal' ,estaLogueado , async (req, res) => {
@@ -197,6 +194,15 @@ ruta.get('/borrar/:legajo', estaLogueado, async (req, res) => {
         req.flash('msjmal', 'El usuario no ha sido borrado');
         res.redirect('/borrar/' + legajo)
     }
+});
+
+ruta.post('/Materia', async(req, res) => {
+    const materia = req.body;
+    console.log(materia)
+    res.redirect('/paginas/Materia');
+});
+ruta.get('/Materia', async(req, res) => {
+    res.render('paginas/Materia')
 });
 
 
